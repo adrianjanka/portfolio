@@ -5,7 +5,7 @@
       <div class="projects">
         <div class="project">
           <div class="project-image">
-            <img src="/images/design-1.jpg" alt="Wortmarke Projekt" />
+            <img src="https://placehold.co/800x450" alt="Wortmarke Projekt" />
           </div>
           <div class="project-info">
             <h3>Wortmarke</h3>
@@ -15,7 +15,7 @@
         
         <div class="project">
           <div class="project-image">
-            <img src="/images/design-2.jpg" alt="BBO - Mein Leben Projekt" />
+            <img src="https://placehold.co/800x450" alt="BBO - Mein Leben Projekt" />
           </div>
           <div class="project-info">
             <h3>BBO - Mein Leben</h3>
