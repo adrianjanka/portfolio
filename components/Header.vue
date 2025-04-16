@@ -1,24 +1,22 @@
 <template>
   <header class="hero" id="home" :style="{ backgroundImage: `url(${currentHeroImage})` }">
+    <div class="contact-info">
+      <p>SAY HI</p>
+      <p>adi.janka@bluewin.ch</p>
+      <p>@adrian_janka</p>
+    </div>
+    
     <div class="hero-content">
       <h1 :style="{ color: currentColor, fontFamily: currentFont }">Portfolio</h1>
       <div class="hero-info">
         <h2>ADRIAN JANKA</h2>
-        <div class="contact-info">
-          <p>SAY HI</p>
-          <p>adi.janka@bluewin.ch</p>
-          <p>@adrian_janka</p>
-        </div>
       </div>
-    </div>
-    <div class="logo-container">
-      <img :src="currentLogo" alt="Logo" class="header-logo" />
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // Vordefinierte Optionen
 const heroImages = [
@@ -29,20 +27,12 @@ const heroImages = [
   '/api/placeholder/1920/1080?text=Hero+5',
 ];
 
-const logos = [
-  '/images/logo1.png',
-  '/api/placeholder/100/100?text=Logo+2',
-  '/api/placeholder/100/100?text=Logo+3',
-  '/api/placeholder/100/100?text=Logo+4',
-  '/api/placeholder/100/100?text=Logo+5',
-];
-
 const fonts = [
-  "'Inter', sans-serif",
+  "'Abril Fatface', cursive",
+  "'Bodoni Moda', serif",
+  "'Cinzel', serif",
+  "'Yeseva One', cursive",
   "'Playfair Display', serif",
-  "'Montserrat', sans-serif",
-  "'Roboto Slab', serif",
-  "'Poppins', sans-serif",
 ];
 
 const colors = [
@@ -55,39 +45,45 @@ const colors = [
 
 // State für aktuelle Elemente
 const currentHeroImage = ref(heroImages[0]);
-const currentLogo = ref(logos[0]);
 const currentFont = ref(fonts[0]);
 const currentColor = ref(colors[0]);
 
-// Index für den aktuellen Animationsschritt
-const currentStep = ref(0);
-const totalSteps = 5;
-
-// CSS-Variable für die Akzentfarbe aktualisieren
+// CSS-Variablen für die Akzentfarbe aktualisieren
 const updateAccentColor = (color) => {
   document.documentElement.style.setProperty('--primary-color', color);
 };
 
-// Zufälliges Element aus Array auswählen
-const getRandomElement = (array) => {
-  const index = Math.floor(Math.random() * array.length);
-  return array[index];
+// Zufälliges Element aus Array auswählen, ohne das aktuelle zu wiederholen
+const getRandomElement = (array, current) => {
+  const filteredArray = array.filter(item => item !== current);
+  const index = Math.floor(Math.random() * filteredArray.length);
+  return filteredArray[index];
 };
 
 // Animation starten
 onMounted(() => {
   let step = 0;
+  
+  // Direkt beim Start Schriftarten und Farben setzen
+  document.head.insertAdjacentHTML(
+    'beforeend',
+    `<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Cinzel&family=Playfair+Display&family=Yeseva+One&display=swap" rel="stylesheet">`
+  );
+  
+  // Initialen Zustand setzen
+  updateAccentColor(currentColor.value);
+  
   const interval = setInterval(() => {
-    currentHeroImage.value = getRandomElement(heroImages);
-    currentLogo.value = getRandomElement(logos);
-    currentFont.value = getRandomElement(fonts);
-    currentColor.value = getRandomElement(colors);
+    // Neues Bild, Schriftart und Farbe auswählen (ohne Wiederholung)
+    currentHeroImage.value = getRandomElement(heroImages, currentHeroImage.value);
+    currentFont.value = getRandomElement(fonts, currentFont.value);
+    currentColor.value = getRandomElement(colors, currentColor.value);
     
     // Akzentfarbe aktualisieren
     updateAccentColor(currentColor.value);
     
     step++;
-    if (step >= totalSteps) {
+    if (step >= 4) { // Nach 5 Schritten stoppen (Start + 4 Änderungen)
       clearInterval(interval);
     }
   }, 1000);
@@ -117,6 +113,20 @@ onMounted(() => {
   transition: background-color 0.5s ease;
 }
 
+.contact-info {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  text-align: right;
+  color: white;
+  z-index: 10;
+}
+
+.contact-info p {
+  margin: 0.2rem 0;
+  font-weight: 500;
+}
+
 .hero-content {
   padding: 2rem;
   max-width: 1200px;
@@ -142,26 +152,6 @@ h2 {
   font-weight: 700;
 }
 
-.contact-info {
-  text-align: right;
-}
-
-.contact-info p {
-  margin: 0.2rem 0;
-}
-
-.logo-container {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-}
-
-.header-logo {
-  width: 80px;
-  height: 80px;
-  transition: all 0.5s ease;
-}
-
 @media (max-width: 768px) {
   h1 {
     font-size: 4rem;
@@ -174,6 +164,8 @@ h2 {
   
   .contact-info {
     text-align: left;
+    left: 2rem;
+    right: auto;
   }
 }
 
