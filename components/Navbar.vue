@@ -2,7 +2,7 @@
   <nav :class="['navbar', { 'scrolled': scrolled }]">
     <div class="navbar-container">
       <div class="logo">
-        <a href="#" @click.prevent="scrollToTop"><img width="35px" src="/public/images/Logo.png"></a>
+        <a href="#" @click.prevent="scrollToTop"><img width="35px" src="/images/logo1.png"></a>
       </div>
     </div>
   </nav>
