@@ -12,7 +12,7 @@
     <GraphicDesign />
     <Projects />
     <Videos />
-    <Contact />
+    <!-- <Contact /> -->
   </div>
 </template>
 
@@ -25,7 +25,7 @@ import AnalogImages from '~/components/AnalogImages.vue';
 import GraphicDesign from '~/components/GraphicDesign.vue';
 import Projects from '~/components/Projects.vue';
 import Videos from '~/components/Videos.vue';
-import Contact from '~/components/Contact.vue';
+// import Contact from '~/components/Contact.vue';
 </script>
 
 <style>

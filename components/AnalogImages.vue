@@ -5,12 +5,18 @@
     <div class="gallery">
       <div 
         class="gallery-item" 
-        v-for="(image, index) in images" 
+        v-for="(image, index) in displayedImages" 
         :key="index"
         @click="openLightbox(index)"
       >
         <img :src="image.src" :alt="image.alt" />
       </div>
+    </div>
+
+    <div v-if="images.length > initialDisplayCount" class="load-more">
+      <button @click="toggleShowMore" class="load-more-btn">
+        {{ showingAll ? 'Weniger anzeigen' : 'Mehr anzeigen' }}
+      </button>
     </div>
 
     <!-- Lightbox für Bilder -->
@@ -25,10 +31,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import ImageLightbox from './ImageLightbox.vue';
 
-// Beispiel-Bilddaten
+// Beispiel-Bilddaten mit mehr Bildern
 const images = ref([
   { 
     src: 'https://placehold.co/600x400', 
@@ -59,12 +65,44 @@ const images = ref([
     src: 'https://placehold.co/600x400', 
     alt: 'Analog Bild 6',
     caption: 'Beschreibung für Bild 6' 
+  },
+  { 
+    src: 'https://placehold.co/600x400', 
+    alt: 'Analog Bild 7',
+    caption: 'Beschreibung für Bild 7' 
+  },
+  { 
+    src: 'https://placehold.co/600x400', 
+    alt: 'Analog Bild 8',
+    caption: 'Beschreibung für Bild 8' 
+  },
+  { 
+    src: 'https://placehold.co/600x400', 
+    alt: 'Analog Bild 9',
+    caption: 'Beschreibung für Bild 9' 
   }
 ]);
 
 // Zustand für Lightbox
 const isLightboxOpen = ref(false);
 const currentImageIndex = ref(0);
+
+// Zustand für "Mehr anzeigen" Funktionalität
+const initialDisplayCount = 6;
+const showAll = ref(false);
+
+// Berechnete Eigenschaft für anzuzeigende Bilder
+const displayedImages = computed(() => {
+  return showAll.value ? images.value : images.value.slice(0, initialDisplayCount);
+});
+
+// Anzeigen Status berechnen
+const showingAll = computed(() => showAll.value);
+
+// Umschalten zwischen "Mehr anzeigen" und "Weniger anzeigen"
+const toggleShowMore = () => {
+  showAll.value = !showAll.value;
+};
 
 // Lightbox öffnen
 const openLightbox = (index) => {
@@ -124,6 +162,28 @@ h2::after {
 
 .gallery-item img:hover {
   transform: scale(1.05);
+}
+
+.load-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.load-more-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
