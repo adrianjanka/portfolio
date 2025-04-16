@@ -1,5 +1,5 @@
 <template>
-  <header class="hero" id="home" :style="{ backgroundImage: `url(${currentHeroImage})` }">
+  <header class="hero" id="home" :style="{ backgroundImage: `url(${heroImage})` }">
     <div class="contact-info">
       <p>SAY HI</p>
       <p>adi.janka@bluewin.ch</p>
@@ -7,7 +7,7 @@
     </div>
     
     <div class="hero-content">
-      <h1 :style="{ color: currentColor, fontFamily: currentFont }">Portfolio</h1>
+      <h1 :style="{ color: accentColor, fontFamily: currentFont }">Portfolio</h1>
       <div class="hero-info">
         <h2>ADRIAN JANKA</h2>
       </div>
@@ -23,8 +23,8 @@ const heroImages = [
   '/images/hero1.jpg',
   '/images/hero2.jpg',
   '/images/hero3.jpg',
-  '/api/placeholder/1920/1080?text=Hero+4',
-  '/api/placeholder/1920/1080?text=Hero+5',
+  '/images/hero4.jpg',
+  '/images/hero5.jpg'
 ];
 
 const fonts = [
@@ -43,50 +43,51 @@ const colors = [
   '#50E3C2', // Mint
 ];
 
-// State für aktuelle Elemente
-const currentHeroImage = ref(heroImages[0]);
+// State für statische Elemente (werden nur einmal gesetzt)
+const heroImage = ref('');
+const accentColor = ref('');
+
+// State für animierte Elemente
 const currentFont = ref(fonts[0]);
-const currentColor = ref(colors[0]);
+const fontIndex = ref(0);
+
+// Zufälliges Element aus Array auswählen
+const getRandomElement = (array) => {
+  const index = Math.floor(Math.random() * array.length);
+  return array[index];
+};
 
 // CSS-Variablen für die Akzentfarbe aktualisieren
 const updateAccentColor = (color) => {
   document.documentElement.style.setProperty('--primary-color', color);
 };
 
-// Zufälliges Element aus Array auswählen, ohne das aktuelle zu wiederholen
-const getRandomElement = (array, current) => {
-  const filteredArray = array.filter(item => item !== current);
-  const index = Math.floor(Math.random() * filteredArray.length);
-  return filteredArray[index];
+// Schriftart-Animation
+const animateFonts = () => {
+  // Zum nächsten Font wechseln
+  fontIndex.value = (fontIndex.value + 1) % fonts.length;
+  currentFont.value = fonts[fontIndex.value];
+  
+  // Nächste Animation planen
+  setTimeout(animateFonts, 2000); // Alle 2 Sekunden wechseln
 };
 
-// Animation starten
 onMounted(() => {
-  let step = 0;
+  // Einmalige Auswahl von Hintergrundbild und Farbe
+  heroImage.value = getRandomElement(heroImages);
+  accentColor.value = getRandomElement(colors);
   
-  // Direkt beim Start Schriftarten und Farben setzen
+  // Akzentfarbe aktualisieren
+  updateAccentColor(accentColor.value);
+  
+  // Google Fonts laden
   document.head.insertAdjacentHTML(
     'beforeend',
     `<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Cinzel&family=Playfair+Display&family=Yeseva+One&display=swap" rel="stylesheet">`
   );
   
-  // Initialen Zustand setzen
-  updateAccentColor(currentColor.value);
-  
-  const interval = setInterval(() => {
-    // Neues Bild, Schriftart und Farbe auswählen (ohne Wiederholung)
-    currentHeroImage.value = getRandomElement(heroImages, currentHeroImage.value);
-    currentFont.value = getRandomElement(fonts, currentFont.value);
-    currentColor.value = getRandomElement(colors, currentColor.value);
-    
-    // Akzentfarbe aktualisieren
-    updateAccentColor(currentColor.value);
-    
-    step++;
-    if (step >= 4) { // Nach 5 Schritten stoppen (Start + 4 Änderungen)
-      clearInterval(interval);
-    }
-  }, 1000);
+  // Schriftart-Animation starten (mit einer kurzen Verzögerung)
+  setTimeout(animateFonts, 500);
 });
 </script>
 
@@ -110,12 +111,11 @@ onMounted(() => {
   width: 100%;
   height: 5px;
   background-color: var(--primary-color);
-  transition: background-color 0.5s ease;
 }
 
 .contact-info {
   position: absolute;
-  top: 2rem;
+  top: 8rem;
   right: 2rem;
   text-align: right;
   color: white;
@@ -137,7 +137,7 @@ onMounted(() => {
 h1 {
   font-size: 6rem;
   margin-bottom: 2rem;
-  transition: color 0.5s ease, font-family 0.5s ease;
+  transition: font-family 1s ease;
 }
 
 .hero-info {

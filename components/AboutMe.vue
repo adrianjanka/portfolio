@@ -19,7 +19,7 @@
       </div>
       <!-- Profilbild -->
       <div class="image">
-        <img src="https://placehold.co/500x500" alt="Adrian Janka" />
+        <img src="/images/me.jpg" alt="Adrian Janka" />
       </div>
     </div>
   </section>
