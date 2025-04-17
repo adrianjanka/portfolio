@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div v-if="images.length > initialDisplayCount" class="load-more">
+    <div v-if="allImages.length > initialDisplayCount" class="load-more">
       <button @click="toggleShowMore" class="load-more-btn">
         {{ showingAll ? 'Weniger anzeigen' : 'Mehr anzeigen' }}
       </button>
@@ -22,8 +22,8 @@
     <!-- Lightbox für Bilder -->
     <ImageLightbox
       :is-open="isLightboxOpen"
-      :images="images.map(img => img.src)"
-      :captions="images.map(img => img.caption)"
+      :images="allImages.map(img => img.src)"
+      :captions="allImages.map(img => img.caption)"
       :start-index="currentImageIndex"
       @close="closeLightbox"
     />
@@ -31,69 +31,61 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import ImageLightbox from './ImageLightbox.vue';
 
-// Beispiel-Bilddaten mit mehr Bildern
-const images = ref([
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 1',
-    caption: 'Beschreibung für Bild 1'
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 2',
-    caption: 'Beschreibung für Bild 2' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 3',
-    caption: 'Beschreibung für Bild 3' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 4',
-    caption: 'Beschreibung für Bild 4' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 5',
-    caption: 'Beschreibung für Bild 5' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 6',
-    caption: 'Beschreibung für Bild 6' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 7',
-    caption: 'Beschreibung für Bild 7' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 8',
-    caption: 'Beschreibung für Bild 8' 
-  },
-  { 
-    src: 'https://placehold.co/600x400', 
-    alt: 'Analog Bild 9',
-    caption: 'Beschreibung für Bild 9' 
-  }
-]);
+// Zustand für Bilder
+const allImages = ref([]);
+const isLoading = ref(true);
 
 // Zustand für Lightbox
 const isLightboxOpen = ref(false);
 const currentImageIndex = ref(0);
 
 // Zustand für "Mehr anzeigen" Funktionalität
-const initialDisplayCount = 6;
+const initialDisplayCount = 9;
 const showAll = ref(false);
+
+// Hilfsfunktion zum extrahieren des Dateinamens ohne Erweiterung
+const getFileName = (path) => {
+  const fileName = path.split('/').pop();
+  return fileName.split('.')[0];
+};
+
+// Bilder dynamisch laden
+onMounted(async () => {
+  try {
+    // Hier nutzen wir Nuxt's globalen Import für Bilder
+    // Diese Funktion durchsucht den angegebenen Ordner
+    const imageContext = import.meta.glob('/public/images/analog/*.{jpg,jpeg,png,webp}', { eager: true });
+    
+    const imageArray = Object.entries(imageContext).map(([path, module]) => {
+      // Pfad für das Bild im Frontend erstellen
+      const displayPath = path.replace('/public', '');
+      const name = getFileName(path);
+      
+      return {
+        src: displayPath,
+        alt: `Analog Bild - ${name}`,
+        caption: `Analog Fotografie - ${name}`
+      };
+    });
+    
+    // Bilder nach Namen sortieren
+    allImages.value = imageArray.sort((a, b) => {
+      return a.src.localeCompare(b.src);
+    });
+    
+    isLoading.value = false;
+  } catch (error) {
+    console.error("Fehler beim Laden der Bilder:", error);
+    isLoading.value = false;
+  }
+});
 
 // Berechnete Eigenschaft für anzuzeigende Bilder
 const displayedImages = computed(() => {
-  return showAll.value ? images.value : images.value.slice(0, initialDisplayCount);
+  return showAll.value ? allImages.value : allImages.value.slice(0, initialDisplayCount);
 });
 
 // Anzeigen Status berechnen

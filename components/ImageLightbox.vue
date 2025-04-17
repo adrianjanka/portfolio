@@ -1,3 +1,48 @@
+<template>
+  <div v-if="isOpen" class="lightbox-overlay">
+    <button class="lightbox-close" @click="closeLightbox">&times;</button>
+    
+    <div class="lightbox-content">
+      <div class="lightbox-navigation">
+        <button 
+          class="nav-button prev" 
+          @click="prevImage" 
+          :disabled="currentIndex === 0"
+        >
+          &lt;
+        </button>
+        
+        <div class="lightbox-image-container">
+          <img :src="currentImage" class="lightbox-image" alt="Lightbox image" />
+        </div>
+        
+        <button 
+          class="nav-button next" 
+          @click="nextImage" 
+          :disabled="currentIndex === images.length - 1"
+        >
+          &gt;
+        </button>
+      </div>
+      
+      <div v-if="captions && captions[currentIndex]" class="lightbox-caption">
+        {{ captions[currentIndex] }}
+      </div>
+      
+      <div v-if="images.length > 1" class="lightbox-thumbnails">
+        <div 
+          v-for="(image, index) in images" 
+          :key="index"
+          :class="['thumbnail', { active: index === currentIndex }]"
+          @click="setImage(index)"
+        >
+          <img :src="image" :alt="`Thumbnail ${index + 1}`" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 

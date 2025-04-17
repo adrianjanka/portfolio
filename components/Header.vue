@@ -2,8 +2,8 @@
   <header class="hero" id="home" :style="{ backgroundImage: `url(${heroImage})` }">
     <div class="contact-info">
       <p>SAY HI</p>
-      <p>adi.janka@bluewin.ch</p>
-      <p>@adrian_janka</p>
+      <p><a class="mailto" href="mailto:adi.janka@bluewin.ch">adi.janka@bluewin.ch</a></p>
+      <p><a class="mailto" href="https://www.instagram.com/adrian_janka">@adrian_janka</a></p>
     </div>
     
     <div class="hero-content">
@@ -33,6 +33,11 @@ const fonts = [
   "'Cinzel', serif",
   "'Yeseva One', cursive",
   "'Playfair Display', serif",
+  "'Space Grotesk', sans-serif",
+  "'Orbitron', sans-serif",
+  "'Exo 2', sans-serif",
+  "'Righteous', cursive",
+  "'Blaka Hollow', cursive"
 ];
 
 const colors = [
@@ -40,7 +45,7 @@ const colors = [
   '#FF6B6B', // Rot
   '#4ECDC4', // Türkis
   '#7D5BA6', // Lila
-  '#50E3C2', // Mint
+  '#F5A623', // Orange
 ];
 
 // State für statische Elemente (werden nur einmal gesetzt)
@@ -69,7 +74,7 @@ const animateFonts = () => {
   currentFont.value = fonts[fontIndex.value];
   
   // Nächste Animation planen
-  setTimeout(animateFonts, 2000); // Alle 2 Sekunden wechseln
+  setTimeout(animateFonts, 1000); // Alle 2 Sekunden wechseln
 };
 
 onMounted(() => {
@@ -82,9 +87,9 @@ onMounted(() => {
   
   // Google Fonts laden
   document.head.insertAdjacentHTML(
-    'beforeend',
-    `<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Cinzel&family=Playfair+Display&family=Yeseva+One&display=swap" rel="stylesheet">`
-  );
+  'beforeend',
+  `<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:opsz@6..96&family=Cinzel&family=Playfair+Display&family=Yeseva+One&family=Space+Grotesk&family=Orbitron&family=Exo+2&family=Righteous&family=Blaka+Hollow&display=swap" rel="stylesheet">`
+);
   
   // Schriftart-Animation starten (mit einer kurzen Verzögerung)
   setTimeout(animateFonts, 500);
@@ -125,6 +130,17 @@ onMounted(() => {
 .contact-info p {
   margin: 0.2rem 0;
   font-weight: 500;
+}
+
+.mailto {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mailto:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
 }
 
 .hero-content {
