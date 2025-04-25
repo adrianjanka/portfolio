@@ -1,9 +1,11 @@
 <template>
   <header class="hero" id="home" :style="{ backgroundImage: `url(${heroImage})` }">
     <div class="contact-info">
-      <p>SAY HI</p>
-      <p><a class="mailto" href="mailto:adi.janka@bluewin.ch">adi.janka@bluewin.ch</a></p>
-      <p><a class="mailto" target="_blank" href="https://www.instagram.com/adrian_janka">@adrian_janka</a></p>
+      <div class="contact-label">SAY HI</div>
+      <div class="contact-links">
+        <p><a class="mailto" href="mailto:adi.janka@bluewin.ch">adi.janka@bluewin.ch</a></p>
+        <p><a class="mailto" target="_blank" href="https://www.instagram.com/adrian_janka">@adrian_janka</a></p>
+      </div>
     </div>
     
     <div class="hero-content">
@@ -74,7 +76,7 @@ const animateFonts = () => {
   currentFont.value = fonts[fontIndex.value];
   
   // Nächste Animation planen
-  setTimeout(animateFonts, 1000); // Alle 2 Sekunden wechseln
+  setTimeout(animateFonts, 1000); // Alle 1 Sekunde wechseln
 };
 
 onMounted(() => {
@@ -122,20 +124,29 @@ onMounted(() => {
   position: absolute;
   top: 8rem;
   right: 2rem;
-  text-align: right;
   color: white;
   z-index: 10;
+  padding: 1.2rem;
+  border-radius: 8px;
+  text-align: right;
 }
 
-.contact-info p {
-  margin: 0.2rem 0;
-  font-weight: 500;
+.contact-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  /* color: var(--primary-color); */
+}
+
+.contact-links p {
+  margin: 0.3rem 0;
+  text-align: right;
 }
 
 .mailto {
   color: white;
   text-decoration: none;
   font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 .mailto:hover {
@@ -168,6 +179,13 @@ h2 {
   font-weight: 700;
 }
 
+/* Responsive Styles */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 4rem;
@@ -179,15 +197,55 @@ h2 {
   }
   
   .contact-info {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1rem;
+  }
+
+  .contact-label {
+    margin-bottom: 0;
+  }
+  
+  .contact-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .contact-links p {
+    margin: 0;
     text-align: left;
-    left: 2rem;
-    right: auto;
   }
 }
 
 @media (max-width: 576px) {
   h1 {
     font-size: 3rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 1rem;
+  }
+  
+  .contact-label {
+    margin-bottom: 0.3rem;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
   }
 }
 </style>
