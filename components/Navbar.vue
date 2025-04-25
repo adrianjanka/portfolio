@@ -2,7 +2,7 @@
   <nav :class="['navbar', { 'scrolled': scrolled }]">
     <div class="navbar-container">
       <div class="logo">
-        <a href="#" @click.prevent="scrollToTop"><img width="35px" src="/images/logo1.png"></a>
+        <a href="#" @click.prevent="scrollToTop"><img width="35px" src="/images/logo/logo_yellow.png"></a>
       </div>
     </div>
   </nav>
@@ -46,9 +46,9 @@ onUnmounted(() => {
 }
 
 .navbar.scrolled {
-  background-color: white;
+  /* background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; */
 }
 
 .navbar-container {

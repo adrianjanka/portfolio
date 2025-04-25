@@ -4,17 +4,15 @@
     <div class="content">
       <div class="text">
         <p>
-          Hi, ich bin Adrian Janka, ein leidenschaftlicher Designer mit Wurzeln in der Schweiz. Meine kreative Reise begann 
-          mit meiner Faszination für visuelle Gestaltung und hat mich zu einem vielseitigen Designer gemacht, der sowohl in 
-          der digitalen als auch in der analogen Welt zu Hause ist.
+          <b>Tschau Moin,</b><br>
+          Ich heisse Adrian Janka, bin 25 Jahre jung & wohne in Chur. Ich habe eine Ausbildung als Mediamatiker absolviert und bin aktuell Student im Studiengang Multimedia Production an der FH Graubünden.
         </p>
         <p>
-          Mein Ansatz in Design verbindet klare, funktionale Ästhetik mit konzeptioneller Tiefe. Ich glaube daran, dass gutes Design 
-          nicht nur schön aussehen, sondern auch eine Geschichte erzählen und eine Verbindung herstellen sollte.
+          Ich liebe es, wenn Technik und Kreativität aufeinandertreffen – sei es bei der Gestaltung von Plakaten, beim Programmieren oder beim Fotografieren. Besonders spannend finde ich die Verbindung von modernen Medien mit kulturellen Themen – wie bei meinen Projekten <i>Kultissimo</i> und <i>Obersaxer Titsch</i>, die du auch hier auf der Seite entdecken kannst.
         </p>
         <p>
-          Neben meiner Arbeit als Designer bin ich auch begeisterter Fotograf und experimentiere gerne mit verschiedenen 
-          Medien und Techniken, um meine kreative Ausdrucksfähigkeit ständig weiterzuentwickeln.
+          Wenn ich nicht gerade am Laptop sitze oder mit der Kamera unterwegs bin, findest du mich auf der Skipiste, hinter der Trommel oder beim Entdecken neuer Kunst und Musik.
+Ich mag es minimalistisch – aber mit Charakter. Bunte Farben? Ja, gern. Schwarz-Weiss? Ebenfalls. Hauptsache, es hat Stil.
         </p>
       </div>
       <!-- Profilbild -->

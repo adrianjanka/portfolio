@@ -5,11 +5,12 @@
       <div class="projects">
         <div class="project">
           <div class="project-image">
-            <img src="https://placehold.co/800x450" alt="Wortmarke Projekt" />
+            <!-- <img src="https://placehold.co/800x450" alt="Wortmarke Projekt" /> -->
+            <img src="/images/graphicdesign/Wortmarke.svg" alt="Wortmarke Projekt"/>
           </div>
           <div class="project-info">
-            <h3>Wortmarke</h3>
-            <p>Beschreibung des Projekts. Hier kannst du Informationen über das Konzept, den Prozess und das Ergebnis deiner Arbeit mit Wortmarken teilen.</p>
+            <h3>Wortmarke Balzer</h3>
+            <p>Die Wortmarke stellt eine Gitarre dar und trägt den Namen meines Vaters – Balzer. Musik spielt in meinem Leben eine wichtige Rolle, und mit diesem Logo verbinde ich Kreativität, Familie und meine Leidenschaft fürs Gestalten. Schlicht, aber mit Bedeutung.</p>
           </div>
         </div>
         

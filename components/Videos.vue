@@ -51,7 +51,7 @@ const videos = ref([
     title: 'Les Sables',
     description: 'Eine visuelle Erkundung der Küstenstadt Les Sables d\'Olonne, die die einzigartige Atmosphäre und Architektur einfängt.',
     thumbnail: 'https://placehold.co/800x450',
-    videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
+    videoUrl: '/video/AdrianJankaStopMotion.mov' // Hier würde die eigentliche Video-URL stehen
   },
   {
     title: 'Dublin',

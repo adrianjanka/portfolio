@@ -9,7 +9,7 @@
         class="project-card"
         @click="openProjectModal(project)"
       >
-        <img :src="project.mainImage" :alt="project.title" />
+        <img :src="project.mainImage" :alt="project.title" :width="project.imageWidth" />
         <div class="project-overlay">
           <h3>{{ project.title }}</h3>
           <p>{{ project.shortDescription }}</p>
@@ -52,7 +52,8 @@ const projects = [
     title: 'Obersaxer Titsch',
     shortDescription: 'Projekt über die Sprache in Obersaxen',
     description: 'Ausführliche Beschreibung des Obersaxer Titsch-Projekts. Hier kannst du Details über die Konzeption, Umsetzung und das Ergebnis teilen.',
-    mainImage: '/images/project-obersaxer.jpg',
+    mainImage: '/images/projects/obersaxer/logo.svg',
+    imageWidth: 60,
     additionalImages: [
       '/images/project-obersaxer-detail-1.jpg',
       '/images/project-obersaxer-detail-2.jpg',
@@ -61,13 +62,14 @@ const projects = [
       { label: 'Jahr', value: '2022' },
       { label: 'Rolle', value: 'Designer' },
       { label: 'Tools', value: 'Adobe InDesign, Illustrator' },
-    ]
+    ],
+    link: '#' // Optional: Link zum Projekt oder weitere Infos
   },
   {
     title: 'Gletsch Chalt',
     shortDescription: 'Projekt über...',
     description: 'Ausführliche Beschreibung des Gletsch Chalt-Projekts. Hier kannst du Details über die Konzeption, Umsetzung und das Ergebnis teilen.',
-    mainImage: '/images/project-gletsch.jpg',
+    mainImage: '/images/projects/gletsch/titelbild.jpg',
     additionalImages: [
       '/images/project-gletsch-detail-1.jpg',
       '/images/project-gletsch-detail-2.jpg',

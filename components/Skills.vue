@@ -7,20 +7,32 @@
         <h3>Personal Skills</h3>
         <ul>
           <li>
+            <Icon name="lucide:layout-grid" size="1.5rem" class="skill-icon" />
+            <span>ordentlich / strukturiert</span>
+          </li>
+          <li>
             <Icon name="lucide:lightbulb" size="1.5rem" class="skill-icon" />
-            <span>Kreativität</span>
+            <span>kreativ</span>
           </li>
           <li>
             <Icon name="lucide:users" size="1.5rem" class="skill-icon" />
-            <span>Teamfähigkeit</span>
+            <span>teamfähig</span>
           </li>
           <li>
-            <Icon name="lucide:kanban" size="1.5rem" class="skill-icon" />
-            <span>Projektmanagement</span>
+            <Icon name="lucide:laugh" size="1.5rem" class="skill-icon" />
+            <span>lustig / spontan</span>
           </li>
           <li>
             <Icon name="lucide:puzzle" size="1.5rem" class="skill-icon" />
-            <span>Problem-Lösung</span>
+            <span>lösungsorientiert</span>
+          </li>
+          <li>
+            <Icon name="lucide:binoculars" size="1.5rem" class="skill-icon" />
+            <span>lernbereit / neugierig</span>
+          </li>
+          <li>
+            <Icon name="lucide:earth" size="1.5rem" class="skill-icon" />
+            <span>kulturell interessiert</span>
           </li>
         </ul>
       </div>
@@ -45,8 +57,20 @@
             <span>HTML/CSS</span>
           </li>
           <li>
-            <Icon name="simple-icons:vuedotjs" size="1.5rem" class="skill-icon" />
-            <span>Vue.js / Nuxt.js</span>
+            <Icon name="simple-icons:javascript" size="1.5rem" class="skill-icon" />
+            <span>Javascript</span>
+          </li>
+          <li>
+            <Icon name="simple-icons:php" size="1.5rem" class="skill-icon" />
+            <span>PHP</span>
+          </li>
+          <li>
+            <Icon name="simple-icons:figma" size="1.5rem" class="skill-icon" />
+            <span>Figma</span>
+          </li>
+          <li>
+            <Icon name="simple-icons:blender" size="1.5rem" class="skill-icon" />
+            <span>Blender</span>
           </li>
         </ul>
       </div>
@@ -55,20 +79,45 @@
     <div class="resume">
       <h3>Lebenslauf</h3>
       <div class="resume-item">
-        <div class="year">2020 - heute</div>
+        <div class="year">2023 – heute</div>
         <div class="description">
-          <h4>Position / Firma</h4>
-          <p>Beschreibung deiner Tätigkeit</p>
+          <h4>Bachelorstudium Multimedia Production</h4>
+          <p>FHGR</p>
         </div>
       </div>
       
       <div class="resume-item">
-        <div class="year">2018 - 2020</div>
+        <div class="year">2022 - 2023</div>
         <div class="description">
-          <h4>Position / Firma</h4>
-          <p>Beschreibung deiner Tätigkeit</p>
+          <h4>Mediamatiker</h4>
+          <p>exigo ag, Chur</p>
         </div>
       </div>
+
+      <div class="resume-item">
+        <div class="year">2021 – 2022</div>
+        <div class="description">
+          <h4>Gestalterische Berufsmaturität</h4>
+          <p>GBC, Chur</p>
+        </div>
+      </div>
+
+      <div class="resume-item">
+        <div class="year">2020 - 2021</div>
+        <div class="description">
+          <h4>Mediamatiker</h4>
+          <p>exigo ag, Chur</p>
+        </div>
+      </div>
+
+      <div class="resume-item">
+        <div class="year">2016 - 2020</div>
+        <div class="description">
+          <h4>Lehre als Mediamatiker</h4>
+          <p>exigo ag, Chur</p>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>

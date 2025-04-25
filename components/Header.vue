@@ -3,7 +3,7 @@
     <div class="contact-info">
       <p>SAY HI</p>
       <p><a class="mailto" href="mailto:adi.janka@bluewin.ch">adi.janka@bluewin.ch</a></p>
-      <p><a class="mailto" href="https://www.instagram.com/adrian_janka">@adrian_janka</a></p>
+      <p><a class="mailto" target="_blank" href="https://www.instagram.com/adrian_janka">@adrian_janka</a></p>
     </div>
     
     <div class="hero-content">
