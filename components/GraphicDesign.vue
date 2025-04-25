@@ -17,18 +17,18 @@
     <div class="project bbo-project">
       <div class="project-info">
         <h3>BBO - Mein Leben</h3>
-        <p>Mehrere Plakatentwürfe für die Bündner Berufsolympiade. Diese Designs zeigen verschiedene Aspekte des beruflichen Lebens in Graubünden und wurden entwickelt, um junge Menschen für lokale Ausbildungswege zu begeistern.</p>
+        <p>Diese drei Plakate thematisieren die Bergbahnen Obersaxen Mundaun. In einer Kombination aus historischen Bildmotiven und markanter Typografie entstand eine dreiteilige Serie, die die ikonischen Sesselbahnen der Region ins Zentrum rückt. Die Gestaltung verbindet Nostalgie mit kraftvoller, moderner Anmutung.</p>
       </div>
       
       <div class="posters-grid">
         <div class="poster">
-          <img src="https://placehold.co/600x800" alt="BBO Plakat 1" />
+          <img src="/public/images/graphicdesign/bbo/meierhof_kartitscha.jpg" width="600" alt="Meierhof - Kartitscha" />
         </div>
         <div class="poster">
-          <img src="https://placehold.co/600x800" alt="BBO Plakat 2" />
+          <img src="/public/images/graphicdesign/bbo/stein.jpg" width="600" alt="Stein" />
         </div>
         <div class="poster">
-          <img src="https://placehold.co/600x800" alt="BBO Plakat 3" />
+          <img src="/public/images/graphicdesign/bbo/wali_stein.jpg" width="600" alt="Wali - Stein" />
         </div>
       </div>
     </div>
