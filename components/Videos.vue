@@ -26,13 +26,24 @@
       <div class="modal-content" @click.stop>
         <button class="close-button" @click="closeVideo">&times;</button>
         <div class="video-container">
-          <!-- Hier würde normalerweise ein iframe für YouTube oder Vimeo eingesetzt -->
-          <div class="video-player">
-            <img :src="activeVideo.thumbnail" :alt="activeVideo.title" class="placeholder-player" />
-            <div class="play-overlay">
-              <p>Hier würde das Video abgespielt werden</p>
-              <p class="small">{{ activeVideo.title }}</p>
-            </div>
+          <!-- Vimeo Embed -->
+          <div v-if="isVimeoUrl(activeVideo.videoUrl)" class="video-player">
+            <iframe
+              :src="getVimeoEmbedUrl(activeVideo.videoUrl)"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          
+          <!-- Lokales Video -->
+          <div v-else class="video-player">
+            <video controls autoplay width="100%" height="100%">
+              <source :src="activeVideo.videoUrl" :type="getVideoType(activeVideo.videoUrl)">
+              Dein Browser unterstützt das Video-Element nicht.
+            </video>
           </div>
         </div>
         <h3>{{ activeVideo.title }}</h3>
@@ -49,22 +60,12 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const videos = ref([
   {
     title: 'Les Sables',
-    description: 'Eine visuelle Erkundung der Küstenstadt Les Sables d\'Olonne, die die einzigartige Atmosphäre und Architektur einfängt.',
-    thumbnail: 'https://placehold.co/800x450',
-    videoUrl: 'https://vimeo.com/1079334533' // Hier würde die eigentliche Video-URL stehen
+    description: 'In diesem Stop-Motion-Video wird die Herstellung von klassischen Sablés auf kreative Weise inszeniert. Schritt für Schritt entfaltet sich der Backprozess in liebevoll arrangierten Bildern – vom Teigkneten bis zum fertigen Gebäck.',
+    thumbnail: '/video/thumb.jpg',
+    // videoUrl: '/public/video/AdrianJankaStopMotion.mov' // Vimeo-URL oder lokaler Pfad wie '/videos/les-sables.mp4'
+    videoUrl: 'https://vimeo.com/1079334533' // Beispiel-Vimeo-URL
   },
-  // {
-  //   title: 'Dublin',
-  //   description: 'Eine Reise durch die historische Stadt Dublin, mit Fokus auf urbane Landschaften und kulturelle Eigenheiten.',
-  //   thumbnail: 'https://placehold.co/800x450',
-  //   videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
-  // },
-  // {
-  //   title: 'Milano Design',
-  //   description: 'Ein Blick auf das Designfestival in Mailand, mit Einblicken in moderne und klassische Designtrends.',
-  //   thumbnail: 'https://placehold.co/800x450',
-  //   videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
-  // }
+  // Weitere Videos können hier hinzugefügt werden
 ]);
 
 // Zustand für das Video-Modal
@@ -80,6 +81,29 @@ const playVideo = (video) => {
 const closeVideo = () => {
   activeVideo.value = null;
   document.body.style.overflow = '';
+};
+
+// Prüfen, ob es sich um eine Vimeo-URL handelt
+const isVimeoUrl = (url) => {
+  return url && url.includes('vimeo.com');
+};
+
+// Vimeo Embed URL generieren
+const getVimeoEmbedUrl = (url) => {
+  // Extrahiere die Vimeo-ID
+  const vimeoId = url.match(/vimeo\.com\/(\d+)/);
+  if (vimeoId && vimeoId[1]) {
+    return `https://player.vimeo.com/video/${vimeoId[1]}?autoplay=1`;
+  }
+  return '';
+};
+
+// Bestimmen des Video-Typs basierend auf der Dateierweiterung
+const getVideoType = (url) => {
+  if (url.endsWith('.mp4')) return 'video/mp4';
+  if (url.endsWith('.webm')) return 'video/webm';
+  if (url.endsWith('.ogg')) return 'video/ogg';
+  return 'video/mp4'; // Standardwert
 };
 
 // Schließen mit Escape-Taste
@@ -212,6 +236,7 @@ h3 {
   font-size: 24px;
   cursor: pointer;
   z-index: 10;
+  color: #fff;
 }
 
 .video-container {
@@ -227,33 +252,6 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.placeholder-player {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.play-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  text-align: center;
-}
-
-.small {
-  font-size: 0.8rem;
-  opacity: 0.8;
-  margin-top: 0.5rem;
 }
 
 .modal-content h3 {
