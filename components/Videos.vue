@@ -51,20 +51,20 @@ const videos = ref([
     title: 'Les Sables',
     description: 'Eine visuelle Erkundung der Küstenstadt Les Sables d\'Olonne, die die einzigartige Atmosphäre und Architektur einfängt.',
     thumbnail: 'https://placehold.co/800x450',
-    videoUrl: '/video/AdrianJankaStopMotion.mov' // Hier würde die eigentliche Video-URL stehen
+    videoUrl: 'https://vimeo.com/1079334533' // Hier würde die eigentliche Video-URL stehen
   },
-  {
-    title: 'Dublin',
-    description: 'Eine Reise durch die historische Stadt Dublin, mit Fokus auf urbane Landschaften und kulturelle Eigenheiten.',
-    thumbnail: 'https://placehold.co/800x450',
-    videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
-  },
-  {
-    title: 'Milano Design',
-    description: 'Ein Blick auf das Designfestival in Mailand, mit Einblicken in moderne und klassische Designtrends.',
-    thumbnail: 'https://placehold.co/800x450',
-    videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
-  }
+  // {
+  //   title: 'Dublin',
+  //   description: 'Eine Reise durch die historische Stadt Dublin, mit Fokus auf urbane Landschaften und kulturelle Eigenheiten.',
+  //   thumbnail: 'https://placehold.co/800x450',
+  //   videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
+  // },
+  // {
+  //   title: 'Milano Design',
+  //   description: 'Ein Blick auf das Designfestival in Mailand, mit Einblicken in moderne und klassische Designtrends.',
+  //   thumbnail: 'https://placehold.co/800x450',
+  //   videoUrl: '#' // Hier würde die eigentliche Video-URL stehen
+  // }
 ]);
 
 // Zustand für das Video-Modal

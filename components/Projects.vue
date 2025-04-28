@@ -9,7 +9,7 @@
         class="project-card"
         @click="openProjectModal(project)"
       >
-        <img :src="project.mainImage" :alt="project.title" :width="project.imageWidth" />
+        <img :src="project.mainImage" :alt="project.title" />
         <div class="project-overlay">
           <h3>{{ project.title }}</h3>
           <p>{{ project.shortDescription }}</p>
@@ -33,52 +33,52 @@ import ProjectModal from './ProjectModal.vue';
 const projects = [
   {
     title: 'Kultissimo',
-    shortDescription: 'Kulturprojekt für...',
-    description: 'Ausführliche Beschreibung des Kultissimo-Projekts. Hier kannst du Details über die Konzeption, Umsetzung und das Ergebnis teilen.',
-    mainImage: '/images/project-kultissimo.jpg',
-    additionalImages: [
-      '/images/project-kultissimo-detail-1.jpg',
-      '/images/project-kultissimo-detail-2.jpg',
-      '/images/project-kultissimo-detail-3.jpg',
-    ],
+    shortDescription: 'Plakatserie über Kultklassiker',
+    description: 'Eine minimalistische Plakatserie, die ikonische Kultobjekte neu interpretiert. Mit reduziertem Design werden Klassiker wie Star Wars, Aromat oder der Adidas Samba stilvoll inszeniert und auf ihre Essenz reduziert – eine Hommage an zeitlose Symbole der Popkultur.',
+    mainImage: '/images/projects/kult/logo.png',
+    // additionalImages: [
+    //   '/images/project-kultissimo-detail-1.jpg',
+    //   '/images/project-kultissimo-detail-2.jpg',
+    //   '/images/project-kultissimo-detail-3.jpg',
+    // ],
     details: [
-      { label: 'Jahr', value: '2023' },
+      { label: 'Jahr', value: '2024' },
       { label: 'Rolle', value: 'Designer & Projektleiter' },
       { label: 'Tools', value: 'Adobe InDesign, Illustrator, Photoshop' },
     ],
-    link: '#' // Optional: Link zum Projekt oder weitere Infos
+    link: 'https://www.adrianjanka.ch/kultissimo/' // Optional: Link zum Projekt oder weitere Infos
   },
   {
     title: 'Obersaxer Titsch',
-    shortDescription: 'Projekt über die Sprache in Obersaxen',
-    description: 'Ausführliche Beschreibung des Obersaxer Titsch-Projekts. Hier kannst du Details über die Konzeption, Umsetzung und das Ergebnis teilen.',
-    mainImage: '/images/projects/obersaxer/logo.svg',
-    imageWidth: 60,
-    additionalImages: [
-      '/images/project-obersaxer-detail-1.jpg',
-      '/images/project-obersaxer-detail-2.jpg',
-    ],
+    shortDescription: 'Obersaxer Wörterbuch Sammlung',
+    description: 'Ein Projekt zur Bewahrung der kulturellen Identität von Obersaxen. Mit liebevoll gestalteten Illustrationen wird das fast vergessene Obersaxer Titsch dokumentiert und lebendig gehalten. Eine Hommage an die Sprache, Geschichten und Werte vergangener Generationen.',
+    mainImage: '/images/projects/obersaxer/logo.png',
+    // additionalImages: [
+    //   '/images/project-obersaxer-detail-1.jpg',
+    //   '/images/project-obersaxer-detail-2.jpg',
+    // ],
     details: [
-      { label: 'Jahr', value: '2022' },
-      { label: 'Rolle', value: 'Designer' },
-      { label: 'Tools', value: 'Adobe InDesign, Illustrator' },
+      { label: 'Jahr', value: '2025' },
+      { label: 'Rolle', value: 'Entwickler & Designer' },
+      { label: 'Tools', value: 'Adobe InDesign' },
     ],
-    link: '#' // Optional: Link zum Projekt oder weitere Infos
+    link: 'https://www.adrianjanka.ch/obersaxer-titsch/' // Optional: Link zum Projekt oder weitere Infos
   },
   {
     title: 'Gletsch Chalt',
-    shortDescription: 'Projekt über...',
-    description: 'Ausführliche Beschreibung des Gletsch Chalt-Projekts. Hier kannst du Details über die Konzeption, Umsetzung und das Ergebnis teilen.',
-    mainImage: '/images/projects/gletsch/titelbild.jpg',
-    additionalImages: [
-      '/images/project-gletsch-detail-1.jpg',
-      '/images/project-gletsch-detail-2.jpg',
-    ],
+    shortDescription: 'Illustration von Glace-Klassikern',
+    description: 'Eine illustrative Hommage an die ikonischen Glace-Klassiker der Schweiz. Die Illustration interpretiert bekannte Sorten wie Rakete, Solero oder Magnum visuell neu und verbindet Retro-Ästhetik mit modernem Design. Entstanden ist eine verspielte und gleichzeitig stilvolle Sammlung, die Erinnerungen an Sommer, Freibäder und Kioske weckt.',
+    mainImage: '/images/projects/gletsch/logo.png',
+    // additionalImages: [
+    //   '/images/project-gletsch-detail-1.jpg',
+    //   '/images/project-gletsch-detail-2.jpg',
+    // ],
     details: [
       { label: 'Jahr', value: '2021' },
-      { label: 'Rolle', value: 'Designer & Fotograf' },
-      { label: 'Tools', value: 'Adobe InDesign, Photoshop' },
-    ]
+      { label: 'Rolle', value: 'Designer' },
+      { label: 'Tools', value: 'Adobe InDesign, Illustrator' },
+    ],
+    link: 'https://indd.adobe.com/view/3e809201-0e44-4267-91f3-c0b512693e0f'
   }
 ];
 
