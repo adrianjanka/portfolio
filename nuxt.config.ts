@@ -23,10 +23,17 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { 
-          // hid: 'description',
           name: 'description', 
-          content: 'Portfolio von Adrian Janka - Graphic Design, Projekte und mehr' 
-        }
+          content: 'Portfolio von Adrian Janka - Mediamatiker und Student Multimedia Production aus Chur. Entdecke meine Projekte in Grafikdesign, Fotografie, Video und Webentwicklung.' 
+        },
+        // Social Media Meta Tags
+        { property: 'og:title', content: 'Adrian Janka - Portfolio' },
+        { property: 'og:description', content: 'Mediamatiker und Multimedia Production Student aus Chur mit Fokus auf Grafikdesign, Fotografie und Webentwicklung' },
+        { property: 'og:image', content: 'https://adrianjanka.ch/images/og-image.jpg' },
+        { property: 'og:url', content: 'https://adrianjanka.ch' },
+        { property: 'og:type', content: 'website' },
+        // Keywords
+        { name: 'keywords', content: 'Adrian Janka, Portfolio, Mediamatiker, Multimedia Production, Chur, Grafikdesign, Fotografie, Webentwicklung, FH Graubünden' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
