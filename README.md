@@ -1,75 +1,63 @@
-# Nuxt Minimal Starter
+# Adrian Janka - Portfolio Website
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A personal portfolio website built with Nuxt 3, showcasing my skills and projects in graphic design, photography, video production, and web development.
 
-## Setup
+## 🚀 Features
 
-Make sure to install dependencies:
+- Modern, responsive design
+- Smooth scroll animations
+- Image gallery for photography works
+- Project showcase
+- Skills visualization
+- Dark/Light mode toggle
+- SEO optimized
+
+## 🛠️ Technologies
+
+- [Nuxt 3](https://nuxt.com/) - Vue.js framework
+- [@nuxt/content](https://content.nuxtjs.org/) - Content management
+- [@nuxt/image](https://image.nuxtjs.org/) - Image optimization
+- [@nuxt/fonts](https://github.com/nuxt/fonts) - Web font optimization
+- Custom CSS animations
+
+## 🔧 Setup
+
+Make sure to install the dependencies:
 
 ```bash
 # npm
 npm install
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
+## 💻 Development
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## 📦 Production
 
 Build the application for production:
 
 ```bash
 # npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+## 📝 Project Structure
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+```
+├── assets/              # CSS and other assets
+├── components/          # Vue components 
+├── layouts/             # Layout components
+├── pages/               # Application pages
+├── plugins/             # JavaScript plugins
+└── public/              # Static files
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 📄 License
+
+[MIT](https://choosealicense.com/licenses/mit/)

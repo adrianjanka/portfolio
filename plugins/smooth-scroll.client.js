@@ -1,35 +1,38 @@
 export default defineNuxtPlugin((nuxtApp) => {
-    // Warte, bis das DOM geladen ist
-    nuxtApp.hook('app:mounted', () => {
-      // Alle internen Links auswählen
-      const links = document.querySelectorAll('a[href^="#"]');
+  nuxtApp.vueApp.directive('scroll-animation', {
+    mounted(el, binding) {
+      const animationClass = binding.value || 'animate-in';
+      const animationType = el.classList.contains('fade-in') ? 'fade-in' : 
+                            el.classList.contains('slide-left') ? 'slide-left' :
+                            el.classList.contains('slide-right') ? 'slide-right' :
+                            el.classList.contains('zoom-in') ? 'zoom-in' : '';
       
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          
-          const targetId = link.getAttribute('href');
-          
-          // Wenn das Ziel "#" (Home) ist, scrolle zum Anfang
-          if (targetId === '#') {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-            return;
-          }
-          
-          // Ansonsten scrolle zum Zielelement
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            const offsetPosition = targetElement.offsetTop - 100; // 100px Offset für die Navigation
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add animation class when element is visible
+            el.classList.add(animationClass);
+            // Optional: unobserve after animation is triggered
+            if (!binding.modifiers.repeat) {
+              observer.unobserve(el);
+            }
+          } else if (binding.modifiers.repeat) {
+            // Remove animation class when element is not visible (if repeat is enabled)
+            el.classList.remove(animationClass);
           }
         });
+      }, {
+        threshold: binding.modifiers.threshold ? parseFloat(binding.arg || 0.1) : 0.1,
+        rootMargin: binding.modifiers.margin ? binding.arg || '0px' : '0px'
       });
-    });
+      
+      observer.observe(el);
+    },
+    unmounted(el) {
+      // Clean up observer when component is unmounted
+      if (el._observer) {
+        el._observer.disconnect();
+      }
+    }
   });
+});
