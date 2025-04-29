@@ -1,0 +1,28 @@
+[v-scroll-animation] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Klasse, die bei Sichtbarkeit hinzugefügt wird */
+  .animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Variationen */
+  .fade-in[v-scroll-animation] {
+    transform: none;
+  }
+  
+  .slide-left[v-scroll-animation] {
+    transform: translateX(30px);
+  }
+  
+  .slide-right[v-scroll-animation] {
+    transform: translateX(-30px);
+  }
+  
+  .zoom-in[v-scroll-animation] {
+    transform: scale(0.95);
+  }

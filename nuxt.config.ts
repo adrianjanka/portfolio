@@ -11,7 +11,10 @@ export default defineNuxtConfig({
     '@nuxt/icon'
   ],
   
-  css: ['~/assets/css/main.css'],
+  css: [
+    '@/assets/css/animations.css',
+    '~/assets/css/main.css'
+  ],
   
   app: {
     head: {
