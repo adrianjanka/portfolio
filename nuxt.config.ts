@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   ],
   
   app: {
+    baseURL: '/portfolio/',
     head: {
       title: 'Adrian Janka - Portfolio',
       meta: [

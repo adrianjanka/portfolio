@@ -17,7 +17,7 @@ Ich mag es minimalistisch – aber mit Charakter. Bunte Farben? Ja, gern. Schwar
       </div>
       <!-- Profilbild -->
       <div class="image">
-        <img src="/images/me.jpg" alt="Adrian Janka" />
+        <img src="public/images/me.jpg" alt="Adrian Janka" />
       </div>
     </div>
   </section>
