@@ -9,7 +9,9 @@
         :key="index"
         @click="openLightbox(index)"
       >
-        <img :src="image.src" :alt="image.alt" />
+        <img :src="$getImagePath(image.src)" :alt="image.alt" />
+
+        
       </div>
     </div>
 
@@ -34,6 +36,8 @@
 import { ref, computed, onMounted } from 'vue';
 import ImageLightbox from './ImageLightbox.vue';
 
+const { $getImagePath } = useNuxtApp();
+
 // Zustand für Bilder
 const allImages = ref([]);
 const isLoading = ref(true);
@@ -56,12 +60,11 @@ const getFileName = (path) => {
 onMounted(async () => {
   try {
     // Hier nutzen wir Nuxt's globalen Import für Bilder
-    // Diese Funktion durchsucht den angegebenen Ordner
     const imageContext = import.meta.glob('/public/images/analog/*.{jpg,jpeg,png,webp}', { eager: true });
     
     const imageArray = Object.entries(imageContext).map(([path, module]) => {
-      // Pfad für das Bild im Frontend erstellen
-      const displayPath = path.replace('/public', '');
+      // Verwende die Hilfsfunktion, um den korrekten Pfad zu erstellen
+      const displayPath = $getImagePath(path.replace('/public', ''));
       const name = getFileName(path);
       
       return {

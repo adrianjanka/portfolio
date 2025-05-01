@@ -5,7 +5,7 @@
     <!-- Wortmarke Projekt -->
     <div class="project">
       <div class="project-image">
-        <img src="/images/graphicdesign/Wortmarke.svg" alt="Wortmarke Projekt"/>
+        <img :src="$getImagePath('/images/graphicdesign/Wortmarke.svg')" alt="Wortmarke Projekt"/>
       </div>
       <div class="project-info">
         <h3>Wortmarke Balzer</h3>
@@ -22,13 +22,13 @@
       
       <div class="posters-grid">
         <div class="poster">
-          <img src="/public/images/graphicdesign/bbo/meierhof_kartitscha.jpg" width="600" alt="Meierhof - Kartitscha" />
+          <img :src="$getImagePath('/images/graphicdesign/bbo/meierhof_kartitscha.jpg')" width="600" alt="Meierhof - Kartitscha" />
         </div>
         <div class="poster">
-          <img src="/public/images/graphicdesign/bbo/stein.jpg" width="600" alt="Stein" />
+          <img :src="$getImagePath('/images/graphicdesign/bbo/stein.jpg')" width="600" alt="Stein" />
         </div>
         <div class="poster">
-          <img src="/public/images/graphicdesign/bbo/wali_stein.jpg" width="600" alt="Wali - Stein" />
+          <img :src="$getImagePath('/images/graphicdesign/bbo/wali_stein.jpg')" width="600" alt="Wali - Stein" />
         </div>
       </div>
     </div>

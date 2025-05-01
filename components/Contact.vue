@@ -44,7 +44,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: #f8e71c;
+    background-color: var(--primary-color);
   }
   
   .contact-container {

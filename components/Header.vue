@@ -20,6 +20,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const { $getImagePath } = useNuxtApp();
+
 // Vordefinierte Optionen
 const heroImages = [
   '/images/hero1.jpg',
@@ -80,8 +82,11 @@ const animateFonts = () => {
 };
 
 onMounted(() => {
-  // Einmalige Auswahl von Hintergrundbild und Farbe
-  heroImage.value = getRandomElement(heroImages);
+
+  // Wähle zufälliges Bild und füge baseURL hinzu
+  const randomImagePath = getRandomElement(heroImages);
+  heroImage.value = $getImagePath(randomImagePath);
+  // Wähle zufällige Akzentfarbe
   accentColor.value = getRandomElement(colors);
   
   // Akzentfarbe aktualisieren

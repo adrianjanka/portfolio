@@ -9,7 +9,7 @@
         class="project-card"
         @click="openProjectModal(project)"
       >
-        <img :src="project.mainImage" :alt="project.title" />
+        <img :src="$getImagePath(project.mainImage)" :alt="project.title" />
         <div class="project-overlay">
           <h3>{{ project.title }}</h3>
           <p>{{ project.shortDescription }}</p>
@@ -28,6 +28,8 @@
 <script setup>
 import { ref } from 'vue';
 import ProjectModal from './ProjectModal.vue';
+
+const { $getImagePath } = useNuxtApp();
 
 // Projektdaten
 const projects = [
@@ -122,7 +124,7 @@ h2::after {
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: #f8e71c;
+  background-color: var(--primary-color);
 }
 
 .projects-grid {

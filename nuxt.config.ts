@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   ],
   
   app: {
-    baseURL: '/portfolio/',
+    // Verwende eine Umgebungsvariable oder defaulte zu '/portfolio/'
+    baseURL: process.env.BASE_URL,
     head: {
       title: 'Adrian Janka - Portfolio',
       meta: [
@@ -43,6 +44,13 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap' 
         }
       ]
+    }
+  },
+  
+  // Stelle die Konfiguration dem Client zur Verfügung
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL
     }
   }
 })

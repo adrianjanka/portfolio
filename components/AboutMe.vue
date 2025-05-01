@@ -16,8 +16,8 @@ Ich mag es minimalistisch – aber mit Charakter. Bunte Farben? Ja, gern. Schwar
         </p>
       </div>
       <!-- Profilbild -->
-      <div class="image">
-        <img src="public/images/me.jpg" alt="Adrian Janka" />
+      <div class="aboutmeimage">
+        <img :src="$getImagePath('/images/me.jpg')" alt="Adrian Janka" />
       </div>
     </div>
   </section>
@@ -61,12 +61,12 @@ h2::after {
   line-height: 1.7;
 }
 
-.image {
+.aboutmeimage {
   flex: 1;
-  max-width: 400px;
+  max-width: 400px !important;
 }
 
-.image img {
+.aboutmeimage img {
   width: 100%;
   height: auto;
   border-radius: 4px;
@@ -78,7 +78,7 @@ h2::after {
     flex-direction: column-reverse;
   }
   
-  .image {
+  .aboutmeimage {
     max-width: 100%;
     margin-bottom: 2rem;
   }
