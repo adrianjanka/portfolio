@@ -59,26 +59,59 @@ const getFileName = (path) => {
 // Bilder dynamisch laden
 onMounted(async () => {
   try {
-    // Hier nutzen wir Nuxt's globalen Import für Bilder
-    const imageContext = import.meta.glob('/public/images/analog/*.{jpg,jpeg,png,webp}', { eager: true });
-    
-    const imageArray = Object.entries(imageContext).map(([path, module]) => {
-      // Verwende die Hilfsfunktion, um den korrekten Pfad zu erstellen
-      const displayPath = $getImagePath(path.replace('/public', ''));
-      const name = getFileName(path);
-      
-      return {
-        src: displayPath,
-        alt: `Analog Bild - ${name}`,
-        caption: `Analog Fotografie - ${name}`
-      };
-    });
-    
-    // Bilder nach Namen sortieren
-    allImages.value = imageArray.sort((a, b) => {
-      return a.src.localeCompare(b.src);
-    });
-    
+
+    allImages.value.push({ src: '/images/analog/postautodeck_1.jpeg', alt: 'Close-Up Postautodeck Chur', caption: 'Postautodeck Close-Up - Chur' })
+    allImages.value.push({ src: '/images/analog/stein_2.jpeg', alt: 'Stein - Obersaxen', caption: 'Stein - Obersaxen' })
+    allImages.value.push({ src: '/images/analog/wald.jpeg', alt: 'Verschneiter Wald', caption: 'Verschneiter Wald - Obersaxen, Wali' })
+    allImages.value.push({ src: '/images/analog/sessellift.jpeg', alt: 'Sessellift Kartitscha', caption: 'Sessellift - Obersaxen, Kartitscha' })
+    allImages.value.push({ src: '/images/analog/sessellift_stein.jpeg', alt: 'Sessellift Stein', caption: 'Sessellift - Obersaxen, Stein' })
+    allImages.value.push({ src: '/images/analog/berg2.jpeg', alt: 'Berge im Engadin', caption: 'Berge - Engadin' })
+    allImages.value.push({ src: '/images/analog/engadiner.jpeg', alt: 'Engadiner Skimarathon', caption: 'Engadiner Skimarathon' })
+    allImages.value.push({ src: '/images/analog/lift.jpeg', alt: 'Liftmasten im Engadin', caption: 'Liftmasten - St.Moritz, Corvatsch' })
+    allImages.value.push({ src: '/images/analog/achterbahn_2.jpeg', alt: 'Achterbahn im Europapark', caption: 'Achterbahn - Rust' })
+    allImages.value.push({ src: '/images/analog/kran.jpeg', alt: 'Kran', caption: 'Kran - Chur' })
+    allImages.value.push({ src: '/images/analog/stein_1.jpeg', alt: 'Stein - Obersaxen', caption: 'Stein - Obersaxen' })
+    allImages.value.push({ src: '/images/analog/bodensee.jpeg', alt: 'Bodensee', caption: 'Bodensee - Lindau' })
+    allImages.value.push({ src: '/images/analog/achterbahn.jpeg', alt: 'Achterbahn', caption: 'Achterbahn - Rust' })
+    allImages.value.push({ src: '/images/analog/fernsehturm_2.jpeg', alt: 'Fernsehturm', caption: 'Fernsehturm - Berlin' })
+    allImages.value.push({ src: '/images/analog/postautodeck_2.jpeg', alt: 'Postautodeck - Chur', caption: 'Postautodeck - Chur' })
+    allImages.value.push({ src: '/images/analog/himmel.jpeg', alt: 'Himmel', caption: 'Himmel - Chur' })
+    allImages.value.push({ src: '/images/analog/sesselliftmitsonne.jpeg', alt: 'Sessellift', caption: 'Sessellift - Obersaxen, Stein' })
+    allImages.value.push({ src: '/images/analog/bodensee_2.jpeg', alt: 'Bodensee', caption: 'Bodensee - Lindau' })
+    allImages.value.push({ src: '/images/analog/sezner.jpeg', alt: 'Sezner', caption: 'Sezner - Obersaxen' })
+    allImages.value.push({ src: '/images/analog/halberkran.jpeg', alt: 'Kran', caption: 'Halber Kran - Chur' })
+    allImages.value.push({ src: '/images/analog/rotesrathaus.jpeg', alt: 'Rotes Rathaus', caption: 'Rotes Rathaus - Berlin' })
+    allImages.value.push({ src: '/images/analog/fernsehturm_closeup.jpeg', alt: 'Close-Up Fernsehturm', caption: 'Fernsehturm Close-Up - Berlin' })
+    allImages.value.push({ src: '/images/analog/flaschen.jpeg', alt: 'Flaschen', caption: 'Abendstimmung - Basel' })
+    allImages.value.push({ src: '/images/analog/landschaft.jpeg', alt: 'Landschaft', caption: 'Landschaft - Alt St.Johann' })
+    allImages.value.push({ src: '/images/analog/kran_2.jpeg', alt: 'Kran', caption: 'Kran - Chur' })
+    allImages.value.push({ src: '/images/analog/hochhaus.jpeg', alt: 'Hochhaus', caption: 'Hochhaus - Chur' })
+    allImages.value.push({ src: '/images/analog/sonnenlicht.jpeg', alt: 'Sonnenlicht', caption: 'Sonnenlicht - Alt St.Johann' })
+    allImages.value.push({ src: '/images/analog/landschaft_2.jpeg', alt: 'Landschaft', caption: 'Landschaft - Alt St.Johann' })
+    allImages.value.push({ src: '/images/analog/strommasten.jpeg', alt: 'Strommasten', caption: 'Strommasten - Chur' })
+    allImages.value.push({ src: '/images/analog/calanda.jpeg', alt: 'Calanda', caption: 'Calanda im Brunnen - Obersaxen, Wali' })
+    allImages.value.push({ src: '/images/analog/innenhof.jpeg', alt: 'Innenhof', caption: 'Innenhof - Budapest' })
+    allImages.value.push({ src: '/images/analog/tulpen.jpeg', alt: 'Knospen', caption: 'Knospen - Chur' })
+    allImages.value.push({ src: '/images/analog/wellen.jpeg', alt: 'Wellen', caption: 'Wellen - Split' })
+    allImages.value.push({ src: '/images/analog/abendrot.jpeg', alt: 'Abendrot', caption: 'Abendrot - Obersaxen, Sezner' })
+    allImages.value.push({ src: '/images/analog/bahnhof.jpeg', alt: 'Bahnhof', caption: 'Bahnhof - Chur' })
+    allImages.value.push({ src: '/images/analog/pradamaz.jpeg', alt: 'Ausblick', caption: 'Ausblick - Obersaxen, Pradamaz' })
+    allImages.value.push({ src: '/images/analog/berg.jpeg', alt: 'Berg', caption: 'Berge - Arosa' })
+    allImages.value.push({ src: '/images/analog/fischer.jpeg', alt: 'Fischer', caption: 'Fischer - Athen' })
+    allImages.value.push({ src: '/images/analog/fenster.jpeg', alt: 'Fenster', caption: 'Fensterfront - Berlin' })
+    allImages.value.push({ src: '/images/analog/akropolis_2.jpeg', alt: 'Akropolis', caption: 'Akropolis - Athen' })
+    allImages.value.push({ src: '/images/analog/akropolis_3.jpeg', alt: 'Akropolis', caption: 'Akropolis - Athen' })
+    allImages.value.push({ src: '/images/analog/fernsehturm.jpeg', alt: 'Fernsehturm', caption: 'Fernsehturm - Berlin' })
+    allImages.value.push({ src: '/images/analog/akropolis.jpeg', alt: 'Akropolis', caption: 'Akropolis - Athen' })
+    allImages.value.push({ src: '/images/analog/bergspitz.jpeg', alt: 'Bergspitz', caption: 'Bergspitz - Engadin' })
+    allImages.value.push({ src: '/images/analog/sonnenschirm.jpeg', alt: 'Sonnenschirm', caption: 'Sonnenschirm - Athen' })
+    allImages.value.push({ src: '/images/analog/meierhof_kartitscha.jpeg', alt: 'Sessellift', caption: 'Sessellift - Obersaxen, Kartitscha' })
+    allImages.value.push({ src: '/images/analog/hotel_eden.jpeg', alt: 'Hotel Eden', caption: 'Hotel Eden - Ilanz' })
+    allImages.value.push({ src: '/images/analog/sonnenuntergang.jpeg', alt: 'Sonnenuntergang', caption: 'Sonnenuntergang - Filisur' })
+    allImages.value.push({ src: '/images/analog/riga.jpeg', alt: 'Freiheitsdenkmal', caption: 'Freiheitsdenkmal - Riga' })
+    allImages.value.push({ src: '/images/analog/schwarz.jpeg', alt: 'Schwarz', caption: 'Abstrakt - Unbekannt' })
+    allImages.value.push({ src: '/images/analog/fernsehturm_3.jpeg', alt: 'Fernsehturm', caption: 'Fernsehturm - Berlin' })
+
     isLoading.value = false;
   } catch (error) {
     console.error("Fehler beim Laden der Bilder:", error);

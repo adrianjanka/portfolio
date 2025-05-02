@@ -1,6 +1,6 @@
 <template>
   <section id="graphic-design" class="section">
-    <h2>Graphic Design</h2>
+    <h2>Grafik Design</h2>
     
     <!-- Wortmarke Projekt -->
     <div class="project">

@@ -14,7 +14,7 @@
 
     <!-- Hauptinhalt -->
     <AboutMe />
-    <Skills />
+    <!-- <Skills /> -->
     <AnalogImages />
     <GraphicDesign />
     <Projects />

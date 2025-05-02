@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  // compatibilityDate: '2024-11-01',
+  // devtools: { enabled: true },
+
+  ssr: false,
 
   modules: [
     '@nuxt/content',
@@ -10,14 +12,14 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon'
   ],
-  
+
   css: [
-    '@/assets/css/animations.css',
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
+    '~/assets/css/animations.css'
   ],
-  
+
   app: {
-    // Verwende eine Umgebungsvariable oder defaulte zu '/portfolio/'
+    // Verwende eine Umgebungsvariable
     baseURL: process.env.BASE_URL,
     head: {
       title: 'Adrian Janka - Portfolio',
@@ -46,11 +48,13 @@ export default defineNuxtConfig({
       ]
     }
   },
-  
+
   // Stelle die Konfiguration dem Client zur Verfügung
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL
     }
-  }
+  },
+
+  compatibilityDate: '2025-05-02'
 })
