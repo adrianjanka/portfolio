@@ -9,9 +9,9 @@
     </div>
     
     <div class="hero-content">
-      <h1 :style="{ color: accentColor, fontFamily: currentFont }">Portfolio</h1>
+      <h1 :style="{ color: accentColor, fontFamily: currentFont }">ADRIAN JANKA</h1>
       <div class="hero-info">
-        <h2>ADRIAN JANKA</h2>
+        <h2>FRISCH & FRÜNDLICH</h2>
       </div>
     </div>
   </header>
@@ -167,7 +167,7 @@ onMounted(() => {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
   transition: font-family 1s ease;
 }
