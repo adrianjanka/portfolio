@@ -22,6 +22,9 @@ export default defineNuxtConfig({
     // Verwende eine Umgebungsvariable
     baseURL: process.env.BASE_URL,
     head: {
+      htmlAttrs: {
+        lang: 'de'
+      },
       title: 'Adrian Janka - Portfolio für Design, Multimedia & Webentwicklung',
       titleTemplate: '%s | Adrian Janka',
       meta: [
