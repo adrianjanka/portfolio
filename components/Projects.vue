@@ -81,6 +81,22 @@ const projects = [
       { label: 'Tools', value: 'Adobe InDesign, Illustrator' },
     ],
     link: 'https://indd.adobe.com/view/3e809201-0e44-4267-91f3-c0b512693e0f'
+  },
+  {
+    title: 'adrians Sommerklänge 2025',
+    shortDescription: 'Albumtagebuch Sommer 2025',
+    description: 'Ein digitales Projekt zur Bewahrung meines musikalischen Sommers 2025. Mit einem nostalgischen Windows-XP-Look, pixeligen Albumcovern und interaktiven Fenstern wird meine 70-Tage-Albumreise spielerisch inszeniert und lebendig gehalten. Eine Hommage an das bewusste Musikhören, an ganze Alben – und an das Gefühl, den eigenen Sommer immer wieder neu zu erleben.',
+    mainImage: '/images/projects/summeralbum/beitragsbild.png',
+    additionalImages: [
+      '/images/projects/summeralbum/mockup.png',
+      '/images/projects/summeralbum/preview.png',
+    ],
+    details: [
+      { label: 'Jahr', value: '2025' },
+      { label: 'Rolle', value: 'Entwickler & Designer' },
+      { label: 'Tools', value: 'SvelteKit, APIs' },
+    ],
+    link: 'https://www.adrianjanka.ch/summeralbum/' // Optional: Link zum Projekt oder weitere Infos
   }
 ];
 
